@@ -1,0 +1,40 @@
+<h3>Welcome to the NB VoterData app!</h3>
+
+<p>
+  This app allows developers to persist and examine
+  voter data made available to them through their
+  sandboxed candidate account on the NationBuilder
+  Election Center.
+
+  For more details, visit the <a href="http://elections.nationbuilder.com"> NBEC homepage</a>.
+</p>
+
+<h3>Connect as a Candidate</h3>
+
+
+<div>
+<% if @signed_in and not @candidate_authenticated %>
+  <%= link_to "Candidate Connect", oauth_consumer_path(:nbec) %>
+
+  <p>
+    Before accessing NBEC's voter data, you must be authenticated
+    through NBEC.
+  </p>
+<% elsif @candidate_authenticated %>
+  <%= link_to "Disconnect", oauth_consumer_path(:nbec), :method => :delete %>
+
+  <p>
+    You are currently authenticated as a candidate on NBEC.
+  </p>
+<% else %>
+  <p>
+    You must sign in as a registered user before
+    being allowed to save voter data.
+  </p>
+
+  <ul>
+    <li><%= link_to "Sign in",  new_user_session_url %></li>
+    <li><%= link_to "Register",  new_user_registration_url %></li>
+  </ul>
+<% end %>
+</div>

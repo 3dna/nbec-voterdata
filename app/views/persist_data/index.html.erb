@@ -1,0 +1,14 @@
+<% content_for :title do %>
+  Persist voter data
+<% end %>
+
+<% if @show_download_button %>
+  <p>
+    <b>Voter data is available for download.</b>
+  </p>
+
+  <%= form_tag do %>
+    <%= hidden_field_tag(:download_url, @download_url) %>
+    <%= submit_tag "Download data" %>
+  <% end %>
+<% end %>

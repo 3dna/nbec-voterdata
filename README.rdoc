@@ -1,0 +1,38 @@
+== Welcome to the NB VoterData App
+
+This application demonstrates simple usage of the NationBuilder Election
+Center (http://elections.nationbuilder.com) for downloading and examining
+voter data locally.
+
+== Acquiring NBEC OAuth Keys
+1. Visit the NationBuilder Election Center (http://elections.nationbuilder.com).
+
+2. Register as a developer.
+
+3. Register a new application and store your OAuth key and secret somewhere.
+
+== Installing the Application
+
+1. Clone the project somewhere:
+       git clone https://github.com/3dna/sample-app-2.git
+
+2. Install rvm (https://rvm.io/rvm/install/).
+
+3. Install Ruby 1.9.2:
+       rvm install 1.9.2
+
+4. In the root directory of the project, create a .rvmrc to manage the app:
+       echo 'rvm --create use 1.9.3@nbec_voter_data' > .rvmrc
+
+5. Run the following commands:
+       rvm --create use 1.9.3@nbec_voter_data
+       bundle install
+       rake db:create
+       rake db:migrate
+
+6. Add your OAuth keys to config/initializers/oauth_consumers.rb.
+
+7. To start up an instance of the application, run:
+       rails s
+
+The app will now be accessible at http://localhost:3000!
