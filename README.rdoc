@@ -4,6 +4,14 @@ This application demonstrates simple usage of the NationBuilder Election
 Center (http://elections.nationbuilder.com) for downloading and examining
 voter data locally.
 
+Once you have registered as a developer user, NBEC grants you a sandboxed
+candidate user account that has access to a small subset of NBEC's voter
+database. This application takes advantage of NBEC's voter export api
+for candidates to fetch a CSV containing voter information for a
+region. The CSV is parsed for voter data and persisted
+locally. The webapp then offers you the ability to browse the voter locally
+and make local edits.
+
 == Acquiring NBEC OAuth Keys
 1. Visit the NationBuilder Election Center (http://elections.nationbuilder.com).
 
@@ -14,18 +22,15 @@ voter data locally.
 == Installing the Application
 
 1. Clone the project somewhere:
-       git clone https://github.com/3dna/sample-app-2.git
+       git clone git@github.com:3dna/nbec-voterdata.git
 
-2. Install rvm (https://rvm.io/rvm/install/).
-
-3. Install Ruby 1.9.2:
-       rvm install 1.9.2
-
-4. In the root directory of the project, create a .rvmrc to manage the app:
+2. (Optional) If using RVM, run the following commands in the root directory
+   of the project:
+       rvm install 1.9.3
        echo 'rvm --create use 1.9.3@nbec_voter_data' > .rvmrc
+       rvm --create use 1.9.3@nbec_voter_data
 
 5. Run the following commands:
-       rvm --create use 1.9.3@nbec_voter_data
        bundle install
        rake db:create
        rake db:migrate
