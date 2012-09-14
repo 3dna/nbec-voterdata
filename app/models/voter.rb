@@ -24,9 +24,10 @@ class Voter < ActiveRecord::Base
       voter_data = Hash[schema.zip(voter)]
 
       # Filter keys
-      voter_data.slice! *Voter.attrs_to_store
+      filtered_voter_data = voter_data.slice *Voter.attrs_to_store
+      filtered_voter_data[:response] = voter_data.to_json
 
-      Voter.create! voter_data
+      Voter.create! filtered_voter_data
     end
 
     return voter_count
