@@ -11,15 +11,11 @@
 </p>
 
 <p>
-  <b>Voter:</b>
-  <%= @voter.voter_id %>
+  <b>Response:</b>
+  <p>
+    <%= h JSON.pretty_generate(JSON.parse(@voter.response)) %>
+  </p>
 </p>
-
-<p>
-  <b>Email:</b>
-  <%= @voter.email %>
-</p>
-
 
 <%= link_to 'Edit', edit_voter_path(@voter) %> |
 <%= link_to 'Back', voters_path %>

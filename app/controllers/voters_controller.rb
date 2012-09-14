@@ -1,4 +1,5 @@
 class VotersController < ApplicationController
+
   # GET /voters
   # GET /voters.json
   def index
