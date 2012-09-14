@@ -6,6 +6,7 @@ class Voter < ActiveRecord::Base
   @attrs_to_store = [:email, :first_name, :last_name, :voter_id]
 
   attr_accessible *@attrs_to_store
+  attr_accessible :response
 
   def self.import_voters_from_csv(document)
     rows = []
