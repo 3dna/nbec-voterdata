@@ -25,7 +25,8 @@ class OauthConsumersController < ApplicationController
   end
 
   def deny_access!
-    raise Acl9::AccessDenied
+    flash[:error] = "Could not authenticate using OAuth."
+    go_back
   end
 
   def current_user=(user)
