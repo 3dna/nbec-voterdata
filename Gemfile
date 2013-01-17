@@ -5,6 +5,8 @@ gem 'jquery-rails'
 gem 'oauth-plugin'
 gem 'rails', '3.2.8'
 gem 'sqlite3'
+gem 'therubyracer'
+gem 'less-rails'
 gem 'twitter-bootstrap-rails', :group => :assets
 
 group :assets do
